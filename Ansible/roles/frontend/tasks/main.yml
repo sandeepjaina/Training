@@ -9,6 +9,11 @@
     dest: /tmp/
     remote_src: yes
 
+- name: Remove files from html folder
+  ansible.builtin.file:
+    path: //usr/share/nginx/html/
+    state: absent
+
 - name: copy files from source to nginx destination
   ansible.builtin.copy:
     src: /tmp/frontend-main/static/
