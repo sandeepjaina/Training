@@ -13,11 +13,11 @@
        msg: "{{URL}}"
 
 
-#- hosts: all
-#  tasks:
-#    - name: print play variables
-#      debug:
-#         msg: "{{URL}}"
+- hosts: all
+  tasks:
+    - name: print play variables
+      debug:
+         msg: "{{URL}}"
 #
 #
 #- hosts: all
