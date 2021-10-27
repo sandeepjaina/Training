@@ -6,5 +6,5 @@
 - name: Download and unzip the file
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp/frontend
+    dest: /tmp/
     remote_src: yes
