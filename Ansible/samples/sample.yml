@@ -20,10 +20,10 @@
          msg: "{{URL}}"
 #
 #
-#- hosts: all
-# # vars_file:
-# #   - var.yml
-#  tasks:
-#   - name: print var.tfvsrs variables
-#     debug:
-#       msg: "{{URL}}"
+- hosts: all
+  vars_file:
+    - var.yml
+  tasks:
+   - name: print var.tfvsrs variables
+     debug:
+       msg: "{{URL}}"
