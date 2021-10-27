@@ -22,15 +22,15 @@
  
   - name: copy .html file
     template:
-     src: /root/index.html.j2
-     dest: /var/www/html/index.html
+     src: /root/roboshop.conf.j2
+     dest: /var/www/html/roboshop.conf
     notify: start apache2
     when: ansible_os_family == "Debian"
 
   - name: copy .html file
     template:
-     src: /root/index.html.j2
-     dest: /var/www/html/index.html
+     src: /root/roboshop.conf.j2
+     dest: /var/www/html/roboshop.conf
     notify: start httpd
     when: ansible_os_family == "RedHat"
 

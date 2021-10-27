@@ -1,7 +1,7 @@
 --- 
 - name: copy the http file to dest
   template:
-    src: index.html
-    dest: /var/www/html/index.html
+    src: roboshop.conf
+    dest: /var/www/html/roboshop.conf
   notify:
     - restart apache
