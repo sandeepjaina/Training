@@ -29,3 +29,13 @@
    - name: print var.tfvsrs variables
      debug:
        msg: "{{URL}}"
+
+
+- hosts: all
+  tasks:
+    - name: register values
+      shell: uptime
+      register: out
+    - name: pring the out value
+      debug:
+        msg: "{{out}}"
