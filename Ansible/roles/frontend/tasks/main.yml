@@ -1,34 +1,39 @@
-- name: Install nginx server
-  yum:
-    name: nginx
-    state: installed
+#- name: Install nginx server
+#  yum:
+#    name: nginx
+#    state: installed
+#
+#- name: Download and unzip the file
+#  ansible.builtin.unarchive:
+#    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+#    dest: /tmp/
+#    remote_src: yes
+#
+#- name: Remove files from html folder
+#  ansible.builtin.file:
+#    path: /usr/share/nginx/html
+#    state: absent
+#
+#- name: copy files from source to nginx destination
+#  ansible.builtin.copy:
+#    src: /tmp/frontend-main/static/
+#    dest: /usr/share/nginx/html
+#    remote_src: yes
+#
+#- name: Copy roboshop.conf file
+#  ansible.builtin.copy:
+#    src: roboshop.conf
+#    dest: /etc/nginx/default.d/roboshop.conf
+#    remote_src: no
+#
+#- name: Restart service httpd, in all cases
+#  ansible.builtin.service:
+#    name: nginx
+#    state: restarted
 
-- name: Download and unzip the file
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp/
-    remote_src: yes
 
 - name: Remove files from html folder
   ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-
-- name: copy files from source to nginx destination
-  ansible.builtin.copy:
-    src: /tmp/frontend-main/static/
-    dest: /usr/share/nginx/html
-    remote_src: yes
-
-- name: Copy roboshop.conf file
-  ansible.builtin.copy:
-    src: roboshop.conf
-    dest: /etc/nginx/default.d/roboshop.conf
-    remote_src: no
-
-- name: Restart service httpd, in all cases
-  ansible.builtin.service:
-    name: nginx
-    state: restarted
-
+    path: /home/root/testinghost.sh
+    state: touch
 

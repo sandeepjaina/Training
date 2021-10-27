@@ -1,4 +1,4 @@
-- hosts: linux
+- hosts: {{host_name}}
   become: yes
   roles:
    - frontend
