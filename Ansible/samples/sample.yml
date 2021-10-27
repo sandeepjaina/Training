@@ -8,8 +8,8 @@
    vars:
      URL: tasks.google.com
    - name: print play variables
-        debug:
-          msg: "{{ URL }}"
+     debug:
+       msg: "{{ URL }}"
 
 
 #- hosts: all
