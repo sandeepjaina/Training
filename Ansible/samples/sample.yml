@@ -44,4 +44,4 @@
   tasks:
   - name: print out value from other play
     debug:
-      msg: "{{out}}"
+      msg: "{{out.cmd}}"
