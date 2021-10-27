@@ -69,7 +69,7 @@ output "securitygroups" {
 
 resource "local_file" "inventory-file" {
  content     = "[FRONTEND]\n${aws_instance.instances.*.private_ip[2]}\n[PAYMENT]\n${aws_instance.instances.*.private_ip[5]}\n[SHIPPING]\n${aws_instance.instances.*.private_ip[8]}\n[USER]\n${aws_instance.instances.*.private_ip[9]}\n[CATALOGUE]\n${aws_instance.instances.*.private_ip[1]}\n[CART]\n${aws_instance.instances.*.private_ip[0]}\n[REDIS]\n${aws_instance.instances.*.private_ip[7]}\n[RABBITMQ]\n${aws_instance.instances.*.private_ip[6]}\n[MONGODB]\n${aws_instance.instances.*.private_ip[3]}\n[MYSQL]\n${aws_instance.instances.*.private_ip[4]}\n"
- filename    = "/tmp/inv-roboshop-${var.ENV}"
+ filename    = "/tmp/inv-roboshop"
 }
 locals {
   LENGTH    = length(var.components)
