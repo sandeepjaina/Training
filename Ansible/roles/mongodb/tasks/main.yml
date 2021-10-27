@@ -9,11 +9,18 @@
   yum:
     name: mongodb-org
     state: installed
+#- name: Replacing IP address in config file in /etc/mongod.conf
+#  lineinfile:
+#    path: /etc/mongod.conf
+#    search_string: '127.0.0.1'
+#    line: 127.0.0.1 0.0.0.0
+
 - name: Replacing IP address in config file in /etc/mongod.conf
-  lineinfile:
-    path: /etc/mongod.conf
-    search_string: '127.0.0.1'
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.0\.1'
     line: 127.0.0.1 0.0.0.0
+
 
 #    Install Mongo & Start Service.
 #    # yum install -y mongodb-org
