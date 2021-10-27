@@ -23,6 +23,8 @@
 - hosts: all
   vars_files:
     - var.yml
+  vars:
+    URL: yahoo.com
   tasks:
    - name: print var.tfvsrs variables
      debug:
