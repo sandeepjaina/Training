@@ -43,5 +43,5 @@
 - hosts: all
   tasks:
   - name: print out value from other play
-        debug:
-          msg: "{{out}}"
+    debug:
+      msg: "{{out}}"
