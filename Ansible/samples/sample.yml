@@ -5,19 +5,19 @@
   tasks:
    - name: print play variables
      debug:
-       msg: "{{ URL }}"
+       msg: "{{URL}}"
    vars:
      URL: tasks.google.com
    - name: print play variables
      debug:
-       msg: "{{ URL }}"
+       msg: "{{URL}}"
 
 
 #- hosts: all
 #  tasks:
 #    - name: print play variables
 #      debug:
-#         msg: "{{ URL }}"
+#         msg: "{{URL}}"
 #
 #
 #- hosts: all
@@ -26,4 +26,4 @@
 #  tasks:
 #   - name: print var.tfvsrs variables
 #     debug:
-#       msg: "{{ URL }}"
+#       msg: "{{URL}}"
