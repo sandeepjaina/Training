@@ -15,8 +15,8 @@
 - hosts: all
   tasks:
     - name: print play variables
-          debug:
-            msg: "{{ URL }}"
+      debug:
+         msg: "{{ URL }}"
 
 
 - hosts: all
@@ -24,6 +24,5 @@
  #   - var.yml
   tasks:
    - name: print var.tfvsrs variables
-            debug:
-              msg: "{{ URL }}"
-
+     debug:
+       msg: "{{ URL }}"
