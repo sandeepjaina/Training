@@ -40,8 +40,14 @@
       debug:
         msg: "{{out}}"
 
+
+
 - hosts: all
   tasks:
+  - name: facts
+    set-fact:
+      uptime: "{{out.start}}"
+
   - name: print out value from other play
     debug:
-      msg: "{{out.cmd}}"
+      msg: "{{uptime}}"
