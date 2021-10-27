@@ -1,5 +1,10 @@
----
-# tasks file for /etc/ansible/roles/sandeep
-- import_tasks: install.yml
-- import_tasks: configure.yml
-- import_tasks: service.yml
+- name: Install nginx server
+  yum:
+    name: nginx
+    state: installed
+
+- name: Download and unzip the file
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp/frontend
+    remote_src: yes
