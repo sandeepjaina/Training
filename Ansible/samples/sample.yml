@@ -21,7 +21,7 @@
 #
 #
 - hosts: all
-  vars_file:
+  vars_files:
     - var.yml
   tasks:
    - name: print var.tfvsrs variables
