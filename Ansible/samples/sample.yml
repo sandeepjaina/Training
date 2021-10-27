@@ -1,2 +1,26 @@
+- hosts: all
+  vars:
+    URL: play.google.com
+  tasks:
+   - name: print play variables
+     debug:
+       msg: "{{ URL }}"
+   vars:
+     URL: tasks.google.com
+   - name: print play variables
+        debug:
+          msg: "{{ URL }}"
 
-#saplezsdsdg
+- hosts: all
+  tasks:
+  - name: print play variables
+          debug:
+            msg: "{{ URL }}"
+
+
+- hosts: all
+  tasks:
+   - name: print var.tfvsrs variables
+            debug:
+              msg: "{{ URL }}"
+
