@@ -39,3 +39,9 @@
     - name: pring the out value
       debug:
         msg: "{{out}}"
+
+- hosts: all
+  tasks:
+  - name: print out value from other play
+        debug:
+          msg: "{{out}}"
