@@ -1,0 +1,20 @@
+- hosts: all
+  vars:
+    training:
+      topic: ansible
+      trainer: sandeep
+      lab: AWS
+  tasks: 
+    - name: pring dictonary variables
+      debug: 
+        msg: "{{ training }}"
+    - name: pring dictonary variables
+      debug:
+        msg: "{{ training['topic'] }}"
+    - name: pring dictonary variables
+      debug:
+        msg: "{{ training.trainer }}"
+    - name: loop format
+      debug:
+        msg : "key is {{item.key}} and value is {{item.value}}"
+      with_dict : "{{ training }}"

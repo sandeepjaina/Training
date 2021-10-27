@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    - name: loop example
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+      - '/home/ansible/var21'
+      - '/home/ansible/var221'
+      - '/home/ansible/var132'

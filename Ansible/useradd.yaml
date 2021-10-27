@@ -1,0 +1,10 @@
+---
+- hosts: linux
+  become: yes
+  tasks:
+    - name: creating a user via runtime variable
+      user: 
+        name: "{{ username }}"
+        shell: /bin/bash
+        state: present
+  

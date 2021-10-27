@@ -1,0 +1,21 @@
+---
+- hosts: linux
+  become: yes
+  tasks:
+   - name: creating a directory facts.d
+     file:
+      path: /etc/ansible/facts.d
+      recurse: yes
+      state: directory
+   - name: copy custom artifact
+     template:
+       src: date.sh.j2
+       dest: /etc/ansible/facts.d/date_time.fact
+       mode: 0755
+   - name: print custom fact
+     #debug:
+      # msg: "Custom fact is {{ansible_local.date_time}}"
+     debug:
+       msg: "Custom fact is {{ansible_os_family}}"
+       
+       

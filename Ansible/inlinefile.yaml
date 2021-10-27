@@ -1,0 +1,21 @@
+---
+- hosts: linux
+  tasks:
+  - name : create a file
+    file :
+      path: /home/ansible/hostname.conf
+      state: touch
+
+  - name: Add line to afile
+    lineinfile:
+      dest: /home/ansible/hostname.conf
+      line: hostname= {{ ansible_hostname}}
+      state: present
+
+   - name: changeing the value of hostname
+     lineinfile: 
+       path: /home/ansible/hostname.conf
+       search_string: 'hostname'
+       line: hostname sandeep
+       mode:777
+     

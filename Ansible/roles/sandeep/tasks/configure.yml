@@ -1,0 +1,7 @@
+--- 
+- name: copy the http file to dest
+  template:
+    src: index.html
+    dest: /var/www/html/index.html
+  notify:
+    - restart apache

@@ -1,0 +1,18 @@
+---
+- hosts: linux
+  tasks: 
+  - name: Create Directory 
+    file: 
+     path: /home/ansible/Ansible_directory
+     state: directory
+  - name: create file
+    file:
+     path: /home/ansible/Ansible_directory/ansiblets_2:t
+     state: touch
+
+- hosts: win
+  tasks: 
+  - name: create directory
+    win_file: 
+     path: 'c:\Temp'
+     state: directory

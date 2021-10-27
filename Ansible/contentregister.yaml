@@ -1,0 +1,10 @@
+---
+- hosts: linux
+  tasks:
+   - name: check content of file
+     shell: cat /home/ansible/hostname.conf
+     register: filecontent
+   - debug: msg="file is empty"
+     when: filecontent.stdout==""
+   - debug: msg="content available"
+     when: filecontent.stdout!=""

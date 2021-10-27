@@ -1,0 +1,21 @@
+---
+- hosts: linux
+  tasks:
+   - name: Upload the file to targer server
+     copy: 
+       src: /root/program.sh
+       dest: /home/ansible/program.sh
+       mode: 0755
+   - name: Modify the script
+     lineinfile:
+       state: present
+       dest: /home/ansible/program.sh
+       regexp: "^host="
+       line: host={{ ansible_hostname }}
+       regexp: "^family="
+       line: host={{ ansible_os_family }}
+   - name: run the script
+     shell: /home/ansible/program.sh
+     register: output
+   - debug: msg="output of the file is {{ output.stdout }}"
+    

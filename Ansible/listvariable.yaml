@@ -1,0 +1,16 @@
+---
+- hosts: linux
+  vars:
+   fruits:
+     - apple
+     - banana
+     - orange
+     - grape
+   games: [cricket, football, baseball, carroms]
+  tasks:
+    - name: printing list variables
+      debug:
+        msg: " {{ item[0], items[1] }}"
+      with_nested:
+        - " {{ fruits }}"
+        - " {{ games}}"

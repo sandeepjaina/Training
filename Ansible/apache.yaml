@@ -1,0 +1,42 @@
+---
+- hosts: linux
+  become: yes
+  tasks:
+  - name: Installing Apache on ubuntu
+    apt: 
+     name: apache2
+     update_cache: yes  
+     state: latest
+    when: ansible_os_family == "Debian"
+  - name: start apache service
+    service: name=apache2 enabled=yes state=started
+    when: ansible_os_family == "Debian"
+
+  - name: install Apache on centos
+    yum: name=httpd update_cache=yes state=latest
+    when: ansible_os_family == 'RedHat'
+  - name: Start apache service in centos
+    service: name=httpd enabled=yes state=started
+    when: ansible_os_family == 'RedHat' 
+
+ 
+  - name: copy .html file
+    template:
+     src: /root/index.html.j2
+     dest: /var/www/html/index.html
+    notify: start apache2
+    when: ansible_os_family == "Debian"
+
+  - name: copy .html file
+    template:
+     src: /root/index.html.j2
+     dest: /var/www/html/index.html
+    notify: start httpd
+    when: ansible_os_family == "RedHat"
+
+ 
+  handlers:
+   - name: start apache2
+     service: name=apache2 enabled=yes state=restarted
+   - name: start httpd
+     service: name=httpd enabled=yes state=restarted
