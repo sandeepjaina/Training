@@ -19,7 +19,7 @@
   ansible.builtin.lineinfile:
     path: /etc/mongod.conf
     regexp: '^127\.0\.0\.1'
-    line: 0.0.0.0
+    line: 127\.0\.0\.1 0.0.0.0
 
 
 #    Install Mongo & Start Service.
