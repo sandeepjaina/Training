@@ -44,10 +44,10 @@
 
 - hosts: all
   tasks:
-  - name: facts
-    set-fact:
-      uptime: "{{out.start}}"
+   - name: facts
+     set-fact:
+       uptime: "{{out.start}}"
 
-  - name: print out value from other play
-    debug:
+   - name: print out value from other play
+     debug:
       msg: "{{uptime}}"
