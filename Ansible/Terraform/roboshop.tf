@@ -65,7 +65,12 @@ output "securitygroups" {
   value = aws_spot_instance_request.roboshop.*.security_groups
 }
 
+#components = ["cart" 0, "catalogue" 1, "frontend"2, "mongodb"3, "mysql"4, "payments"5, "rabbitmq"6, "redis"7, "shipping"8, "user"9]
 
+resource "local_file" "inventory-file" {
+ content     = "[FRONTEND]\n${aws_instance.instances.*.private_ip[2]}\n[PAYMENT]\n${aws_instance.instances.*.private_ip[5]}\n[SHIPPING]\n${aws_instance.instances.*.private_ip[8]}\n[USER]\n${aws_instance.instances.*.private_ip[9]}\n[CATALOGUE]\n${aws_instance.instances.*.private_ip[1]}\n[CART]\n${aws_instance.instances.*.private_ip[0]}\n[REDIS]\n${aws_instance.instances.*.private_ip[7]}\n[RABBITMQ]\n${aws_instance.instances.*.private_ip[6]}\n[MONGODB]\n${aws_instance.instances.*.private_ip[3]}\n[MYSQL]\n${aws_instance.instances.*.private_ip[4]}\n"
+ filename    = "/tmp/inv-roboshop-${var.ENV}"
+}
 locals {
   LENGTH    = length(var.components)
 }
