@@ -1,4 +1,4 @@
-- hosts: FRONTEND
+- hosts: linux
   become: yes
   roles:
    - frontend
