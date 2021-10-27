@@ -45,7 +45,7 @@
 - hosts: all
   tasks:
    - name: facts
-     set-fact:
+     set_fact:
        uptime: "{{out.start}}"
 
    - name: print out value from other play
