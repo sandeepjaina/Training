@@ -6,8 +6,8 @@
    - name: print play variables
      debug:
        msg: "{{URL}}"
-   vars:
-     URL: tasks.google.com
+     vars:
+      URL: tasks.google.com
    - name: print play variables
      debug:
        msg: "{{URL}}"
