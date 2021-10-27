@@ -19,6 +19,8 @@
 
 
 - hosts: all
+  vars_file:
+    - var.yml
   tasks:
    - name: print var.tfvsrs variables
             debug:
