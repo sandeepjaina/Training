@@ -1,9 +1,4 @@
-#  Setup MySQL Repo
-#    # echo '[mysql57-community]
-#    name=MySQL 5.7 Community Server
-#    baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
-#    enabled=1
-#    gpgcheck=0' > /etc/yum.repos.d/mysql.repo
+
 - name: Copy repo file
   copy:
     src: mysql.repo
@@ -14,17 +9,29 @@
     name: "mysql-community-server"
     state: present
 
-#    Install MySQL
-#    # yum install mysql-community-server -y
+
 
 - name: Start mysql service
   systemd:
     name: mysqld
     state: restarted
 
-#    Start MySQL.
-#    # systemctl enable mysqld
-#    # systemctl start mysqld
+- name: check default password of mysqldb
+  community.mysql.mysql_query:
+    login_db: root
+    login_password: RoboShop@1
+    query: show databases
+  register: status_login
+  ignore_errors: yes
+
+
+- name: get mysql password
+  shell: "grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'"
+  register: out
+
+
+
+
 #
 #    Now a default root password will be generated and given in the log file.
 #    # grep temp /var/log/mysqld.log
