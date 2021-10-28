@@ -2,10 +2,3 @@
   include_role:
     name: common
     tasks_from: nodejs
-
-
-- name: Copy roboshop.conf file
-  ansible.builtin.copy:
-    src: systemd.service
-    dest: /etc/nginx/default.d/roboshop.conf
-    remote_src: no
