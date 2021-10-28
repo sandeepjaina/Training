@@ -12,7 +12,7 @@
 - name: Install MySQL
   yum:
     name: "mysql-community-server"
-    state: installed
+    state: present
 
 #    Install MySQL
 #    # yum install mysql-community-server -y
