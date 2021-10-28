@@ -1,4 +1,4 @@
-- name: {{COMPONENT}} Setup
+- name: User Setup
   include_role:
     name: common
     tasks_from: nodejs
