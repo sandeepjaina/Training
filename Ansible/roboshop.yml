@@ -33,3 +33,9 @@
   tags: cart
   roles:
    - cart
+
+- hosts: linux
+  become: yes
+  tags: mysql
+  roles:
+   - mysql
