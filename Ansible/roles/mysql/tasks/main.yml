@@ -26,13 +26,16 @@
 
 - name: pring the variable
   debug:
-    msg: "{{status_login}}"
+    msg: "{{status_login.failed}}"
 
-#- name: get mysql password
-#  when: status_login
-#  shell: "grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'"
-#  register: out
+- name: get mysql password
+  when: status_login
+  shell: "grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'"
+  register: DEFAULT_PASSWORD
 
+- name: reset mysql default password
+  when: status_login
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
 
 
 
