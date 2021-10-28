@@ -17,12 +17,12 @@
 
 - name: Replacing IP address in config file in /etc/mongod.conf
   replace:
-    path: "{{item}}"
+    path: "{{item}}/redis.conf"
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
     loop:
-      - /etc/redis.conf
-      - /etc/redis/redis.conf
+      - /etc
+      - /etc/redis
 
 - name: start {{component}} service
   systemd:
