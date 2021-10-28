@@ -1,4 +1,9 @@
 - hosts: linux
   become: yes
   roles:
-   - mongodb
+   - frontend
+
+- hosts: linux
+  become: yes
+  roles:
+   - frontend
