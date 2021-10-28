@@ -21,7 +21,7 @@
     name: mongod
     state: started
 
-- name: Download and unzip the file
+- name: Download and unzip the file from common
   include_role:
     name: common
     tasks_from: download
