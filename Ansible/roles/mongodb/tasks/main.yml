@@ -32,7 +32,7 @@
     idempotent: yes
   loop:
     - catalogue
-    - user
+    - users
 
 
 #- name: Run a js file containing MongoDB commands for users.js
