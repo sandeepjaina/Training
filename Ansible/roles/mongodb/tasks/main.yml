@@ -22,18 +22,18 @@
     state: restarted
 
 - name: Download and unzip the file
-  ansible.builtin.unarchive:
+  unarchive:
     src: https://github.com/roboshop-devops-project/mongodb/archive/main.zip
     dest: /tmp/
     remote_src: yes
 
 - name: Run a js file containing MongoDB commands for catalogue.js
-  community.mongodb.mongodb_shell:
+  mongodb_shell:
     file: "/tmp/mongodb-main/catalogue.js"
     idempotent: yes
 
 - name: Run a js file containing MongoDB commands for catalogue.js
-  community.mongodb.mongodb_shell:
+  mongodb_shell:
     file: "/tmp/mongodb-main/users.js"
     idempotent: yes
 
