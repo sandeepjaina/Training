@@ -14,7 +14,7 @@
   lineinfile:
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
-    replace: '0.0.0.0'
+    replace: 0.0.0.0
 
 #    Install Mongo & Start Service.
 #    # yum install -y mongodb-org
@@ -38,6 +38,12 @@
 #  # curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 #
 #  # cd /tmp
+- name: Run a js file containing MongoDB commands for catalogue.js
+  community.mongodb.mongodb_shell:
+    login_user: user
+    login_password: secret
+    file: "/tmp/"
+    idempotent: yes
 #  # unzip mongodb.zip
 #  # cd mongodb-main
 #  # mongo < catalogue.js
