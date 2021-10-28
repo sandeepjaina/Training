@@ -3,7 +3,12 @@
 #  roles:
 #   - frontend
 
+#- hosts: linux
+#  become: yes
+#  roles:
+#   - mongodb
+
 - hosts: linux
   become: yes
   roles:
-   - mongodb
+   - catalogue
