@@ -1,0 +1,33 @@
+
+- name: Install epel and yum utils
+  yum:
+    name: ["epel-release", "yum-utils"]
+    state: installed
+
+- name: Install epel and yum utils
+  yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: installed
+
+- name: Install epel and yum utils
+  yum:
+    name: redis
+    enablerepo: remi
+    state: present
+
+- name: Replacing IP address in config file in /etc/mongod.conf
+  replace:
+    path: "{{item}}"
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+    loop:
+      - /etc/redis.conf
+      - /etc/redis/redis.conf
+
+- name: start {{component}} service
+  systemd:
+    name: redis
+    state: restarted
+    enabled: yes
+
+

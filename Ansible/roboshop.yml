@@ -15,3 +15,9 @@
   tags: catalogue
   roles:
    - catalogue
+
+- hosts: linux
+  become: yes
+  tags: redis
+  roles:
+   - redis
