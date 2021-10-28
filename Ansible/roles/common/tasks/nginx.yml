@@ -1,0 +1,50 @@
+
+- name: Install nginx server
+  yum:
+    name: ["nodejs", "make", "gcc-c++"]
+    state: installed
+
+
+- name: Create roboshop user account.
+  ansible.builtin.user:
+    name: roboshop
+
+
+- name: Download and unzip the file
+  include_role:
+    name: common
+    tasks_from: download.yml
+
+
+- name: copy files from source to {{COMPONENT}} destination
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/catalogue
+    remote_src: yes
+    owner: roboshop
+    group: roboshop
+
+- name: Update packages based on package.json to their latest version.
+  npm:
+    path: /home/roboshop/catalogue
+    state: latest
+  become_user: roboshop
+
+#- name: Copy roboshop.conf file
+#  ansible.builtin.copy:
+#    src: roboshop.conf
+#    dest: /etc/nginx/default.d/roboshop.conf
+#    remote_src: no
+#
+#- name: Restart service httpd, in all cases
+#  ansible.builtin.service:
+#    name: catalogue
+#    state: restarted
+##  $ npm install
+#NOTE: We need to update the IP address of MONGODB Server in systemd.service file. Replace MONGO_DNSNAME with IP address.
+#  Now, lets set up the service with systemctl.
+#
+## mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+## systemctl daemon-reload
+## systemctl start catalogue
+## systemctl enable catalogue
