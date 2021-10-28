@@ -28,12 +28,13 @@
     remote_src: yes
 
 - name: Run a js file containing MongoDB commands for catalogue.js
-  mongodb_shell:
+  community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/catalogue.js"
     idempotent: yes
 
-- name: Run a js file containing MongoDB commands for catalogue.js
-  mongodb_shell:
+
+- name: Run a js file containing MongoDB commands for users.js
+  community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/users.js"
     idempotent: yes
 
