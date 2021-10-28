@@ -4,10 +4,9 @@
     state: installed
 
 - name: Download and unzip the file
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp/
-    remote_src: yes
+  include_role:
+    name: common
+    tasks_from: download
 
 - name: Remove files from html folder
   ansible.builtin.file:

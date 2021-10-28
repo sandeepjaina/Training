@@ -22,10 +22,9 @@
     state: started
 
 - name: Download and unzip the file
-  unarchive:
-    src: https://github.com/roboshop-devops-project/mongodb/archive/main.zip
-    dest: /tmp/
-    remote_src: yes
+  include_role:
+    name: common
+    tasks_from: download
 
 - name: Run a js file containing MongoDB commands for catalogue.js
   community.mongodb.mongodb_shell:

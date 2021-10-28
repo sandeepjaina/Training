@@ -1,0 +1,3 @@
+- name: Download from GITHUB(common role)
+  include-tasks:
+    file: download-from-github.yml
