@@ -17,9 +17,9 @@
     replace: '0.0.0.0'
 
 - name: start mongodb service
-  systemctl:
+  systemd:
     name: mongod
-    state: restarted
+    state: started
 
 - name: Download and unzip the file
   unarchive:
