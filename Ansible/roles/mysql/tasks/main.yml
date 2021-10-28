@@ -33,14 +33,11 @@
   shell: "grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'"
   register: DEFAULT_PASSWORD
 
-- name: pring the variable
-  debug:
-    msg: "{{DEFAULT_PASSWORD.stdout}}"
 
-#- name: reset mysql default password
-#  when: status_login.failed
-#  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{DEFAULT_PASSWORD.stdout}}
-#
+- name: reset mysql default password
+  when: status_login.failed
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{DEFAULT_PASSWORD.stdout}}
+
 #
 #- name: check default password of mysqldb
 #  community.mysql.mysql_query:
