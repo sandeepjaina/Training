@@ -42,6 +42,16 @@
   shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{DEFAULT_PASSWORD.stdout}}
 
 
+- name: check default password of mysqldb
+  community.mysql.mysql_query:
+    login_db: root
+    login_password: RoboShop@1
+    query: show databases
+    register: databased
+- name: pring the variable
+  debug:
+    msg: "{{databased}}"
+
 
 #
 #    Now a default root password will be generated and given in the log file.
