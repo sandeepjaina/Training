@@ -21,3 +21,9 @@
   tags: redis
   roles:
    - redis
+
+- hosts: linux
+  become: yes
+  tags: user
+  roles:
+   - user
