@@ -30,9 +30,9 @@
   community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
-    loop:
-      - catalogue
-      - user
+  loop:
+    - catalogue
+    - user
 
 
 #- name: Run a js file containing MongoDB commands for users.js
