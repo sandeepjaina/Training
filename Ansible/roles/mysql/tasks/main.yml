@@ -24,11 +24,14 @@
   register: status_login
   ignore_errors: yes
 
+- name: pring the variable
+  debug:
+    msg: "{{status_login}}"
 
-- name: get mysql password
-  when: status_login
-  shell: "grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'"
-  register: out
+#- name: get mysql password
+#  when: status_login
+#  shell: "grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'"
+#  register: out
 
 
 
