@@ -28,13 +28,16 @@
 
 - name: Run a js file containing MongoDB commands for catalogue.js
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/catalogue.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
+    loop:
+      - catalogue
+      - user
 
 
-- name: Run a js file containing MongoDB commands for users.js
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/users.js"
-    idempotent: yes
+#- name: Run a js file containing MongoDB commands for users.js
+#  community.mongodb.mongodb_shell:
+#    file: "/tmp/mongodb-main/users.js"
+#    idempotent: yes
 
 
