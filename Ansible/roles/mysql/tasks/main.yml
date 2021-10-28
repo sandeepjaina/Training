@@ -35,7 +35,7 @@
 
 - name: reset mysql default password
   when: status_login
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{DEFAULT_PASSWORD}}
 
 
 
