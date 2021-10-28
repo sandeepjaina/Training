@@ -29,7 +29,7 @@
     msg: "{{status_login.failed}}"
 
 - name: get mysql password
-  when: status_login
+  when: status_login.failed
   shell: "grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'"
   register: DEFAULT_PASSWORD
 
@@ -38,7 +38,7 @@
     msg: "{{DEFAULT_PASSWORD}}"
 
 - name: reset mysql default password
-  when: status_login
+  when: status_login.failed
   shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{DEFAULT_PASSWORD.stdout}}
 
 
