@@ -39,3 +39,9 @@
   tags: mysql
   roles:
    - mysql
+
+- hosts: linux
+  become: yes
+  tags: shipping
+  roles:
+   - shiping
