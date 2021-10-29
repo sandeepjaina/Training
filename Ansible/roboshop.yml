@@ -44,4 +44,4 @@
   become: yes
   tags: shipping
   roles:
-   - shiping
+   - shipping
